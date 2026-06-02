@@ -1,0 +1,77 @@
+# Signal triggers: events that should escalate a candidate or known entity for analyst review
+# Source: your thesis (see docs/thesis.example.md). Replace these with your own.
+#
+# When any of these events surfaces in news, PubMed, ClinicalTrials.gov, or PitchBook,
+# the relevant card should be updated (or a new card created) and the signal logged in
+# the card's "Outreach notes" or "Recent signals" section.
+
+version: "1.0"
+last_updated: "2026-05-22"
+
+triggers:
+  foundation_grant:
+    description: "Foundation grant of $1M or more to a named LMIC AI health company"
+    sources_to_monitor:
+      - "Gates Foundation grants database"
+      - "Wellcome Trust grants"
+      - "Novo Nordisk Foundation"
+      - "Anthropic Frontier Catalyst tranches"
+      - "EVAH grantees"
+      - "CEPI awardees"
+    action: "Update or create card; tag with grant source in front-matter; add note in 'Outreach notes' with date and amount"
+
+  pharma_collaboration:
+    description: "Pharma R&D collaboration announced with an LMIC-based AI company"
+    sources_to_monitor:
+      - "Pharma press releases (Pfizer, Roche, GSK, Sanofi, Merck, Moderna, BioNTech)"
+      - "FierceBiotech, Endpoints News, BioPharma Dive"
+    action: "Update card; mark as strong investability signal; raise investability_score one level if previously below 4"
+
+  named_co_investor_round:
+    description: "New Series A or B with a named co-investor from `taxonomy/capital_partners.yaml`"
+    sources_to_monitor:
+      - "PitchBook (`pitchbook_get_company_deals`)"
+      - "TechCrunch, TechCabal, Disrupt Africa, Africa Signal"
+    action: "Update card with new round details; elevate to active outreach cohort if not already there"
+
+  top_journal_publication:
+    description: "Publication in NEJM, Lancet, Nature, Nature Medicine, JAMA, or Lancet Digital Health involving an LMIC AI tool"
+    sources_to_monitor:
+      - "PubMed `search_articles`"
+      - "npj Digital Medicine"
+    action: "Create paper card in `landscape/papers/`; link to company card if applicable; consider thematic memo trigger"
+
+  who_pq_advancement:
+    description: "WHO prequalification advancement (assessment started, milestone reached, completed)"
+    sources_to_monitor:
+      - "WHO prequalification page"
+      - "Company press releases"
+    action: "Update card; major positive signal for diagnostic and medical-device companies"
+
+  regulatory_approval:
+    description: "Regulatory approval in a priority market for an AI medical device or software-as-medical-device"
+    sources_to_monitor:
+      - "NAFDAC (Nigeria), Kenya PPB, India CDSCO, ANVISA (Brazil), EDA (Egypt), SAHPRA (South Africa)"
+      - "FDA 510(k) AI/ML database"
+      - "EU MDR notifications"
+    action: "Update card; flag as commercialization milestone; update `regulatory_status_by_market` field"
+
+  acquisition_or_strategic:
+    description: "Acquisition or strategic investment involving an LMIC-relevant AI company"
+    sources_to_monitor:
+      - "PitchBook (deal type filter for M&A and strategic)"
+      - "Press releases"
+    action: "Update card; consider portfolio adjacency implications; possible thematic memo trigger"
+
+  new_program_launch:
+    description: "New program launch (multilateral, foundation, or strategic) earmarked for AI in LMIC health"
+    sources_to_monitor:
+      - "Gates Foundation, Wellcome, Novo, WHO, Africa CDC, World Bank announcements"
+    action: "Add new program to `taxonomy/capital_partners.yaml`; update affected card outreach_notes"
+
+# Usage notes
+usage:
+  - "Run a weekly scan across the listed sources for these triggers"
+  - "Each triggered event should be logged in the relevant card's 'Outreach notes' or in a 'Recent signals' subsection"
+  - "Use the trigger `id` as a tag when logging the event"
+  - "If a trigger fires on an entity not yet in the landscape, create a new card via `prompts/enrich_company.md`"

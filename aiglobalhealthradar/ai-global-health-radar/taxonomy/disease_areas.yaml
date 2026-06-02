@@ -1,0 +1,73 @@
+# Disease areas used for tagging in opportunity cards
+# A company can be tagged with multiple disease areas in front-matter.
+# Categories below are organizational; use the leaf-level values (snake_case)
+# as the canonical tags.
+
+version: "1.0"
+last_updated: "2026-05-22"
+
+categories:
+  infectious_disease:
+    description: "Communicable diseases of major LMIC burden"
+    tags:
+      - tuberculosis
+      - hiv_aids
+      - malaria
+      - hepatitis
+      - neglected_tropical_diseases
+      - sexually_transmitted_infections
+      - antimicrobial_resistance
+      - pandemic_preparedness
+      - respiratory_infections
+      - diarrheal_disease
+      - vector_borne_disease
+
+  maternal_child_health:
+    description: "Reproductive, maternal, newborn, child, and adolescent health"
+    tags:
+      - maternal_care
+      - neonatal_care
+      - child_health
+      - immunization
+      - nutrition
+      - sexual_reproductive_health
+      - family_planning
+      - adolescent_health
+
+  noncommunicable_disease:
+    description: "NCDs of growing LMIC burden"
+    tags:
+      - diabetes
+      - hypertension
+      - cardiovascular_disease
+      - cancer
+      - chronic_kidney_disease
+      - chronic_respiratory_disease
+      - obesity
+
+  mental_health:
+    description: "Mental health conditions and substance use"
+    tags:
+      - depression_anxiety
+      - severe_mental_illness
+      - substance_use
+      - suicide_prevention
+
+  health_system_strengthening:
+    description: "Cross-cutting system enablers, not a specific disease"
+    tags:
+      - primary_care
+      - workforce_training
+      - supply_chain
+      - health_information_systems
+      - quality_improvement
+      - referral_systems
+      - laboratory_systems
+
+  emerging_areas:
+    description: "Cross-domain themes with growing LMIC relevance"
+    tags:
+      - climate_health
+      - air_pollution_health
+      - water_sanitation_hygiene
+      - food_security_health

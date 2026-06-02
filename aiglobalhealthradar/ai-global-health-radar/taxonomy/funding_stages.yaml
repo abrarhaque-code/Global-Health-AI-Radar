@@ -1,0 +1,62 @@
+# Funding stage definitions for v1 investment screening
+# Stages are validated against PitchBook deal history, not just the latest tag.
+# A "Series A" tag on a $50M round may functionally be growth equity and should
+# be flagged in `decisions.md` for review.
+
+version: "1.0"
+last_updated: "2026-05-22"
+
+# Companies in these stages qualify for full opportunity cards (subject to other criteria)
+included_stages:
+  seed:
+    description: "Initial priced equity round, typically $500K to $5M"
+    notes: "Large seed rounds (over $10M) should be flagged in card notes for review."
+  seed_extension:
+    description: "Bridge or extension round before Series A"
+  series_a:
+    description: "Series A, typically $5M to $20M"
+  series_a_extension:
+    description: "Bridge or extension before Series B"
+  series_b:
+    description: "Series B, typically $15M to $50M"
+  series_b_extension:
+    description: "Bridge or extension before Series C"
+  series_c:
+    description: "Series C, typically $30M to $100M"
+
+# Companies in these stages do not qualify for active opportunity cards
+# but may appear on the watchlist with a note explaining why they were excluded
+excluded_stages:
+  pre_seed:
+    description: "Pre-seed and angel rounds"
+    treatment: "Watchlist only. Revisit when a priced round closes."
+  accelerator:
+    description: "Accelerator-only companies (YC, Techstars, Plug and Play, etc.)"
+    treatment: "Watchlist only. Revisit if they raise institutional capital."
+  series_d_and_later:
+    description: "Series D and later priced rounds"
+    treatment: "Too late for the fund's typical entry. Watchlist for follow-on consideration or learning value only."
+  growth_equity:
+    description: "Growth equity, late-stage private rounds, pre-IPO"
+    treatment: "Out of scope."
+  public_companies:
+    description: "Publicly traded companies"
+    treatment: "Out of scope for opportunity cards. May appear as comparables in memos."
+  post_ipo:
+    description: "Post-IPO private rounds or PIPEs"
+    treatment: "Out of scope."
+
+# Edge cases to flag during screening
+edge_cases:
+  - case: "Large seed round (over $10M) with no Series A"
+    treatment: "Treat as seed for the stage filter; flag in card notes for review against the rubric."
+  - case: "Multiple bridge or convertible rounds"
+    treatment: "Use the most recent priced round as the canonical stage. Note bridges in funding history."
+  - case: "Series A-1 vs A-2 naming"
+    treatment: "Normalize to series_a or series_a_extension based on PitchBook deal sequence and amount."
+  - case: "SAFE-only (no priced rounds)"
+    treatment: "Out of scope until the first priced round closes."
+  - case: "Down rounds or recapitalizations"
+    treatment: "Use the new round designation. Note the recap in funding history. Adjust investability score downward unless the recap is a structural fix."
+  - case: "Strategic rounds without venture investors"
+    treatment: "Often signal corporate development, not venture stage. Flag for review."

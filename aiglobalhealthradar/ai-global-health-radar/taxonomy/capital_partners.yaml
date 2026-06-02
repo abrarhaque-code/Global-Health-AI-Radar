@@ -1,0 +1,95 @@
+# Example config. Replace themes/partners with your own thesis.
+# Capital partners and tailwinds for AI in LMIC health
+# Source: your thesis (see docs/thesis.example.md). Replace these with your own.
+# This is an EXAMPLE partner vocabulary. The entities below are public
+# institutions used to illustrate the structure; replace them with the partners
+# relevant to your own network and strategy.
+# A round led or co-led by any of the named partners is a positive signal that
+# raises confidence in scoring. Use this file as a controlled vocabulary when
+# tagging `notable_investors` in card front-matter.
+
+version: "1.2"
+last_updated: "2026-05-28"
+
+foundations_and_dfis:
+  description: "Foundations and development finance institutions active in LMIC AI health"
+  entities:
+    - id: gates
+      name: "Bill & Melinda Gates Foundation"
+    - id: wellcome
+      name: "Wellcome Trust"
+    - id: novo_nordisk_foundation
+      name: "Novo Nordisk Foundation"
+    - id: cepi
+      name: "CEPI (Coalition for Epidemic Preparedness Innovations)"
+    - id: gavi
+      name: "Gavi, the Vaccine Alliance"
+    - id: global_fund
+      name: "Global Fund to Fight AIDS, TB and Malaria"
+    - id: world_bank
+      name: "World Bank"
+    - id: ifc
+      name: "IFC (International Finance Corporation)"
+    - id: fmo
+      name: "FMO (Dutch development bank)"
+    - id: deg
+      name: "DEG (German development finance)"
+    - id: proparco
+      name: "Proparco (French DFI)"
+    - id: bii
+      name: "British International Investment"
+    - id: kfw
+      name: "KfW"
+    - id: usaid
+      name: "United States Agency for International Development"
+
+strategics:
+  description: "Strategic corporate partners and co-investors"
+  entities:
+    - id: pfizer
+      name: "Pfizer"
+    - id: roche
+      name: "Roche"
+    - id: gsk
+      name: "GSK"
+    - id: sanofi
+      name: "Sanofi"
+    - id: merck
+      name: "Merck"
+    - id: moderna
+      name: "Moderna"
+    - id: biontech
+      name: "BioNTech"
+    - id: nvidia
+      name: "NVIDIA"
+    - id: microsoft
+      name: "Microsoft"
+    - id: google
+      name: "Google"
+    - id: aws
+      name: "AWS"
+    - id: openai
+      name: "OpenAI"
+
+specialist_vcs:
+  description: "Specialist VCs with LMIC AI health exposure (replace with your own network)"
+  entities:
+    - id: example_global_vc
+      name: "Example Global VC"
+      notes: "Placeholder for a generalist or deep-tech VC active in your pipeline"
+    - id: example_africa_vc
+      name: "Example Africa-focused VC"
+      notes: "Placeholder for a regional venture firm in your network"
+    - id: example_health_vc
+      name: "Example Health-specialist VC"
+      notes: "Placeholder for a health or impact-focused venture firm"
+    - id: example_accelerator
+      name: "Example Accelerator"
+      notes: "Placeholder for an accelerator whose graduates you track"
+
+# Usage notes
+usage:
+  - "Tag `notable_investors` in card front-matter with the `id` from this file (e.g., `gates`, `roche`)"
+  - "A card whose `notable_investors` include any of the foundations_and_dfis entities should be reviewed for elevated outreach priority"
+  - "Strategics in deal rounds are particularly strong signals for downstream commercial partnership potential"
+  - "Refresh this file when major new programs are announced or when your network changes"

@@ -1,0 +1,114 @@
+# Example config. Replace themes/partners with your own thesis.
+# Seven prioritized AI investment themes
+# Source: your thesis (see docs/thesis.example.md). Replace these with your own.
+#
+# Each opportunity card should be tagged with at least one theme. A card can map
+# to multiple themes (e.g., a manufacturing company with diagnostic adjacency).
+# Thematic memos in `memos/` are organized by these themes.
+
+version: "1.0"
+last_updated: "2026-05-22"
+source: "your thesis (see docs/thesis.example.md). Replace these with your own."
+
+themes:
+  - id: theme_1
+    label: "AI-native diagnostics for high-burden disease in LMIC primary care"
+    classification: "lean_in"
+    category: "health_data_diagnostics_genomics"
+    description: "AI extends specialist diagnostic capability to frontline workers in disease areas where the burden is concentrated in LMICs and the diagnostic workforce gap is structural."
+    sub_threads:
+      - "AI chest X-ray for TB"
+      - "AI obstetric ultrasound"
+      - "AI dermatology and cervical screening"
+      - "AI echocardiography"
+      - "Retinal screening for diabetic retinopathy"
+    pipeline_anchors: ["exampledx"]
+    risks: "Validation in LMIC populations, WHO PQ timing, public procurement cycles, talent retention"
+
+  - id: theme_2
+    label: "African genomic and health data infrastructure with recurring revenue"
+    classification: "lean_in"
+    category: "health_data_diagnostics_genomics"
+    description: "The data layer underneath LMIC health systems is the most durable AI moat available. Companies building it get pharma co-development revenue near-term and clinical decision-support and diagnostic licensing optionality."
+    sub_threads:
+      - "Population genomics platforms"
+      - "Disease registries and EHR"
+      - "Clinical decision support trained on local data"
+    pipeline_anchors: ["genomeafrica"]
+    risks: "Capital-intensive genomics platforms have a track record of slow commercial conversion; require revenue evidence before follow-on."
+
+  - id: theme_3
+    label: "Manufacturing intelligence and cloud-lab infrastructure for African and MEA biopharma"
+    classification: "lean_in"
+    category: "manufacturing_and_supply_chain"
+    description: "AI applied to manufacturing chokepoints (batch failures, cold-chain, regulatory dossiers) shifts unit economics and access. Also enables tech transfer for vaccines and biologics."
+    sub_threads:
+      - "Cloud-lab infrastructure"
+      - "In-plant AI process control"
+      - "Predictive cold chain"
+      - "AI-assisted regulatory dossier preparation"
+    risks: "Conflation of infrastructure with AI. Dependent on LMIC manufacturer commercialization. Tech transfer slow and politically sensitive."
+
+  - id: theme_4
+    label: "LLM-mediated patient navigation, care coordination, and clinical decision support"
+    classification: "selective"
+    category: "health_data_diagnostics_genomics"
+    description: "Vernacular-language LLMs plus SMS or WhatsApp plus structured clinical workflows. Investable shape is a vertically integrated clinical pathway company that owns patient, data, content, and payer relationships."
+    sub_threads:
+      - "Vernacular LLM clinical workflows"
+      - "Provider clinical decision support"
+      - "Payer-integrated care coordination"
+    risks: "LLM hallucination on clinical content. Vernacular fine-tuning data scarce and expensive. Trust deficits with frontline clinicians. Standalone direct-to-consumer symptom-checkers have a weak track record."
+
+  - id: theme_5
+    label: "AI-enabled clinical trials and pharmacovigilance for LMIC-relevant indications"
+    classification: "selective"
+    category: "drug_discovery_and_development"
+    description: "Two bets: (a) AI-native African and South Asian CROs that solve structural underrepresentation of LMIC populations in pivotal trials; (b) RWE and pharmacovigilance platforms for mixed-paper, mixed-digital LMIC settings."
+    sub_threads:
+      - "AI-native African and South Asian CROs"
+      - "RWE and pharmacovigilance platforms"
+    risks: "Long cycle. Depends on regulator (WHO, US FDA) preference shifts. Watch FDA AI-Enabled Early-Phase Trial Optimization Pilot signaling."
+
+  - id: theme_6
+    label: "AI for disease surveillance, vector control, and pandemic preparedness"
+    classification: "monitor"
+    category: "drug_discovery_and_development"
+    description: "Catalytic capital from CEPI ($2.5B 3.0 ask), Gates, WEF concentrating around AI-enabled pathogen surveillance and 100 Days Mission vaccine acceleration. AI-native vector control is an adjacent."
+    sub_threads:
+      - "AI pathogen surveillance"
+      - "AI vector control (sterile insect technique)"
+      - "Pandemic preparedness platforms"
+    risks: "Procurement-bound. Hype risk high. Real-world impact in non-pandemic periods is hard to demonstrate. Hard to underwrite as venture-scale return without procurement guarantees."
+
+  - id: theme_7
+    label: "AI for emerging-market health financing and claims"
+    classification: "monitor"
+    category: "health_data_diagnostics_genomics"
+    description: "AI claims adjudication, fraud detection, and underwriting. Some emerging-market payers are moving on claims ML. Network effects from claims data but dependent on payer market scale."
+    sub_threads:
+      - "AI claims adjudication"
+      - "AI underwriting for emerging-market private insurers"
+      - "Embedded financing for diagnostic devices"
+    risks: "Algorithmic denial bias risks (Health Affairs Oct 2025). LMIC payer markets shallow. Regulator scrutiny rising."
+
+# Classification meaning
+classifications:
+  lean_in: "Build the pipeline aggressively; 1-2 anchors per theme. Discover wide; enrich top 15-25 candidates."
+  selective: "One diligence sprint each; narrow filter. Discover wide but enrich only on a clear thesis fit."
+  monitor: "Track quarterly; do not lead. Lightweight cards or watchlist entries."
+
+# Avoid list (from your thesis; see docs/thesis.example.md). Replace these with your own.
+avoid_categories:
+  - "Pure-play AI drug discovery platforms targeting HIC indications"
+  - "Foundation-model bets in healthcare (wrong scale of capital, wrong instrument)"
+  - "AI symptom checkers as standalone direct-to-consumer products"
+  - "Consumer wellness AI in LMICs"
+  - "HIC AI manufacturing pure-plays without an African footprint"
+
+# Usage notes
+usage:
+  - "Tag `themes` in card front-matter with one or more theme IDs (theme_1 through theme_7)"
+  - "Theme classification (lean_in / selective / monitor) determines enrichment depth"
+  - "Thematic memos in `memos/` are organized by theme; one memo per theme over time"
+  - "Avoid categories should not get full opportunity cards; document on the watchlist if surfacing in discovery"

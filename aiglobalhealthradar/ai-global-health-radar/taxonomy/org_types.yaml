@@ -1,0 +1,40 @@
+# Organization types used in opportunity cards and related cards
+# The primary v1 target is `for_profit_company`. Other types may appear
+# in card relations (partners, customers, validators) but do not get
+# their own full opportunity cards.
+
+version: "1.0"
+last_updated: "2026-05-22"
+
+types:
+  for_profit_company:
+    is_primary_target: true
+    description: "Venture-backed or growth-stage for-profit company"
+
+  academic_research_group:
+    is_primary_target: false
+    description: "University labs, often funders of clinical AI research. Watchlist for spinout potential."
+
+  ngo:
+    is_primary_target: false
+    description: "Non-governmental organizations deploying or building AI for health"
+
+  government_moh:
+    is_primary_target: false
+    description: "Ministries of health, national health systems, regulatory agencies"
+
+  multilateral:
+    is_primary_target: false
+    description: "WHO, World Bank, UNICEF, Gavi, Global Fund, regional development banks"
+
+  hospital_clinical_network:
+    is_primary_target: false
+    description: "Provider networks deploying AI, often as partners or customers"
+
+  philanthropic_foundation:
+    is_primary_target: false
+    description: "Gates, Wellcome, Rockefeller, Skoll, etc. Often co-investors or grant funders"
+
+  social_enterprise_hybrid:
+    is_primary_target: false
+    description: "Mission-first organizations with for-profit subsidiaries or revenue models. Review case-by-case."

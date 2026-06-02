@@ -1,0 +1,61 @@
+# AI taxonomy: three categories + three technical archetypes
+# Source: your thesis (see docs/thesis.example.md). Replace these with your own.
+# Primary taxonomic dimension. Each card must tag one category AND one archetype.
+
+version: "1.0"
+last_updated: "2026-05-22"
+source: "your thesis (see docs/thesis.example.md). Replace these with your own."
+
+# The three AI categories
+categories:
+  drug_discovery_and_development:
+    label: "Drug Discovery and Development AI"
+    conviction: "selective"
+    description: "AI applied to therapeutics, vaccines, and trial design. The fund participates where AI compresses a binding LMIC constraint (timeline, cost of evidence, population fit) and where proprietary data sits inside the company."
+    examples:
+      - "An mRNA nanotech therapeutics company targeting a high-burden LMIC indication"
+    notes: "Broader market valuations are elevated; the LMIC-relevant opportunity set is narrower. The fund is selective here."
+
+  health_data_diagnostics_genomics:
+    label: "Health Data, Diagnostics, and Genomics"
+    conviction: "core"
+    description: "AI applied to clinical decision support, point-of-care diagnostics, genomic platforms, population health surveillance, and registry infrastructure. The foundational health data layer in most LMICs does not exist."
+    examples:
+      - "A population genomics platform with pharma co-development partnerships"
+      - "An AI maternal health and ultrasound company"
+      - "An AI prenatal ultrasound company"
+      - "An AI diagnostics company"
+    notes: "Companies building this layer can capture durable positions with compounding data advantages and recurring pharma or enterprise revenue."
+
+  manufacturing_and_supply_chain:
+    label: "Manufacturing and Supply Chain AI"
+    conviction: "core"
+    description: "AI applied to biomanufacturing yield, batch reliability, cold chain, demand forecasting, tech transfer, and regulatory workflows."
+    examples:
+      - "A cloud-lab company with AI process control and ISO 17034 accreditation"
+      - "A pharma manufacturing company"
+    notes: "LMIC biomanufacturing is scaling; AI-applied process control shifts unit economics and access."
+
+# Three technical archetypes (BCG framing)
+archetypes:
+  foundational_platform:
+    in_scope: false
+    description: "Model labs, infrastructure, sovereign compute providers"
+    examples: ["Regional AI compute infrastructure", "Local-language foundation models"]
+    notes: "The fund generally does not invest at this layer. Too capital-intensive, wrong instrument. May appear in card relations as enablers, not as opportunity cards."
+
+  ai_native:
+    in_scope: true
+    description: "Built around AI from day one; AI is the core moat. Model and data are the product."
+    examples: ["An AI-native genomics platform", "An AI maternal health company", "An AI diagnostics company"]
+
+  ai_enabled:
+    in_scope: true
+    description: "Traditional global health business with AI applied to a core workflow."
+    examples: ["A pharmacy chain with an AI overlay", "A cloud lab with AI process control"]
+
+# Usage notes
+usage:
+  - "Front-matter `ai_category` value must match one of the category IDs above"
+  - "Front-matter `technical_archetype` value must match one of the archetype IDs above"
+  - "Cards with `technical_archetype: foundational_platform` should be on the watchlist or in a relations table, not as standalone opportunity cards"

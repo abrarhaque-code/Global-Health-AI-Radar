@@ -1,0 +1,209 @@
+# World Bank country income classifications used for LMIC scoping
+# Effective FY2026 (July 2025 through June 2026)
+# Source: https://datatopics.worldbank.org/world-development-indicators/the-world-by-income-and-region.html
+#
+# Refresh discipline: annually around July when the World Bank publishes the new
+# classification list. Update `version` and `next_refresh` fields.
+#
+# The list below is illustrative and based on the FY2026 classification. For
+# programmatic or hard-filter use, the canonical source is the World Bank API:
+# https://api.worldbank.org/v2/country
+# Always verify against the canonical source before relying on a specific country
+# entry for a screening decision.
+
+version: "FY2026"
+next_refresh: "2026-07-01"
+source_url: "https://datatopics.worldbank.org/world-development-indicators/the-world-by-income-and-region.html"
+
+# Priority markets per your thesis (see docs/thesis.example.md). Replace these with your own.
+# These are the countries where the workbench focuses discovery and outreach
+# weight. All countries in the World Bank LMIC classification are in scope,
+# but priority countries get heavier discovery effort and faster card cadence.
+priority_markets:
+  description: "Priority LMIC markets per your thesis (see docs/thesis.example.md). Replace these with your own."
+  sub_saharan_africa: [NGA, KEN, GHA, RWA, ZAF, ETH, SEN, UGA, TZA]
+  north_africa_mena: [EGY, MAR, SAU, ARE]  # SAU and ARE are HIC by World Bank but serve as commercial bases for LMIC deployment
+  south_asia: [IND, BGD, PAK]
+  southeast_asia: [IDN, VNM, PHL]
+  latin_america: [BRA, MEX, COL, PER]
+  cross_border_note: "Companies headquartered in USA, GBR, EU member states, or SGP qualify if they have primary commercial activity in LMICs"
+
+# All three lists together form the LMIC universe used by this workbench
+low_income:
+  description: "GNI per capita <= $1,135 (2024 USD threshold)"
+  countries:
+    - AFG  # Afghanistan
+    - BFA  # Burkina Faso
+    - BDI  # Burundi
+    - CAF  # Central African Republic
+    - TCD  # Chad
+    - COD  # Democratic Republic of the Congo
+    - ERI  # Eritrea
+    - ETH  # Ethiopia
+    - GMB  # Gambia
+    - GNB  # Guinea-Bissau
+    - LBR  # Liberia
+    - MDG  # Madagascar
+    - MWI  # Malawi
+    - MLI  # Mali
+    - MOZ  # Mozambique
+    - NER  # Niger
+    - PRK  # North Korea
+    - RWA  # Rwanda
+    - SLE  # Sierra Leone
+    - SOM  # Somalia
+    - SSD  # South Sudan
+    - SDN  # Sudan
+    - SYR  # Syria
+    - TGO  # Togo
+    - UGA  # Uganda
+    - YEM  # Yemen
+    - ZMB  # Zambia
+
+lower_middle_income:
+  description: "GNI per capita $1,136 to $4,465"
+  countries:
+    - AGO  # Angola
+    - BGD  # Bangladesh
+    - BEN  # Benin
+    - BTN  # Bhutan
+    - BOL  # Bolivia
+    - KHM  # Cambodia
+    - CMR  # Cameroon
+    - CPV  # Cabo Verde
+    - COM  # Comoros
+    - CIV  # Cote d'Ivoire
+    - DJI  # Djibouti
+    - EGY  # Egypt
+    - SLV  # El Salvador
+    - SWZ  # Eswatini
+    - GHA  # Ghana
+    - GIN  # Guinea
+    - HND  # Honduras
+    - IND  # India
+    - IDN  # Indonesia
+    - IRN  # Iran
+    - KEN  # Kenya
+    - KIR  # Kiribati
+    - KGZ  # Kyrgyz Republic
+    - LAO  # Laos
+    - LBN  # Lebanon
+    - LSO  # Lesotho
+    - MRT  # Mauritania
+    - FSM  # Micronesia
+    - MAR  # Morocco
+    - MMR  # Myanmar
+    - NPL  # Nepal
+    - NIC  # Nicaragua
+    - NGA  # Nigeria
+    - PAK  # Pakistan
+    - PNG  # Papua New Guinea
+    - PHL  # Philippines
+    - SLB  # Solomon Islands
+    - LKA  # Sri Lanka
+    - STP  # Sao Tome and Principe
+    - SEN  # Senegal
+    - TJK  # Tajikistan
+    - TZA  # Tanzania
+    - TLS  # Timor-Leste
+    - TUN  # Tunisia
+    - UKR  # Ukraine
+    - UZB  # Uzbekistan
+    - VNM  # Vietnam
+    - VUT  # Vanuatu
+    - PSE  # West Bank and Gaza
+    - ZWE  # Zimbabwe
+
+upper_middle_income:
+  description: "GNI per capita $4,466 to $13,845"
+  countries:
+    - ALB  # Albania
+    - DZA  # Algeria
+    - ARG  # Argentina
+    - ARM  # Armenia
+    - AZE  # Azerbaijan
+    - BLR  # Belarus
+    - BLZ  # Belize
+    - BIH  # Bosnia and Herzegovina
+    - BWA  # Botswana
+    - BRA  # Brazil
+    - BGR  # Bulgaria
+    - CHN  # China
+    - COL  # Colombia
+    - CRI  # Costa Rica
+    - CUB  # Cuba
+    - DMA  # Dominica
+    - DOM  # Dominican Republic
+    - ECU  # Ecuador
+    - GNQ  # Equatorial Guinea
+    - FJI  # Fiji
+    - GAB  # Gabon
+    - GEO  # Georgia
+    - GRD  # Grenada
+    - GTM  # Guatemala
+    - GUY  # Guyana
+    - IRQ  # Iraq
+    - JAM  # Jamaica
+    - JOR  # Jordan
+    - KAZ  # Kazakhstan
+    - XKX  # Kosovo
+    - LBY  # Libya
+    - MYS  # Malaysia
+    - MDV  # Maldives
+    - MHL  # Marshall Islands
+    - MUS  # Mauritius
+    - MEX  # Mexico
+    - MDA  # Moldova
+    - MNG  # Mongolia
+    - MNE  # Montenegro
+    - NAM  # Namibia
+    - MKD  # North Macedonia
+    - PLW  # Palau
+    - PRY  # Paraguay
+    - PER  # Peru
+    - ROU  # Romania
+    - RUS  # Russia
+    - SRB  # Serbia
+    - ZAF  # South Africa
+    - LCA  # Saint Lucia
+    - VCT  # Saint Vincent and the Grenadines
+    - SUR  # Suriname
+    - THA  # Thailand
+    - TON  # Tonga
+    - TUR  # Turkey
+    - TKM  # Turkmenistan
+    - TUV  # Tuvalu
+    - VEN  # Venezuela
+    - WSM  # Samoa
+
+# Regional groupings (World Bank regions, excluding high-income members)
+regions:
+  sub_saharan_africa:
+    full_name: "Sub-Saharan Africa"
+    short: "SSA"
+  south_asia:
+    full_name: "South Asia"
+    short: "SA"
+  east_asia_pacific:
+    full_name: "East Asia and Pacific"
+    short: "EAP"
+  latin_america_caribbean:
+    full_name: "Latin America and the Caribbean"
+    short: "LAC"
+  middle_east_north_africa:
+    full_name: "Middle East and North Africa"
+    short: "MENA"
+  europe_central_asia:
+    full_name: "Europe and Central Asia"
+    short: "ECA"
+
+# Notes on edge cases
+edge_cases:
+  - country: "Russia"
+    note: "Classified upper-middle income but politically and operationally distinct from typical LMIC global-health context. Most cards should not treat Russia as a target LMIC."
+  - country: "Cuba"
+    note: "Limited recent World Bank data; classification status fluctuates. Verify before using."
+  - country: "Lebanon"
+    note: "Classification moved from upper-middle to lower-middle in recent years due to economic crisis. Verify current status."
+  - country: "Ukraine"
+    note: "Active conflict context. Standard LMIC classification still applies but operational context differs."

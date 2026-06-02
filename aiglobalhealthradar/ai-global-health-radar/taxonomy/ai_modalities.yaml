@@ -1,0 +1,91 @@
+# AI modalities used for tagging in opportunity cards
+# A card can list multiple modalities. The `primary_modality` field in front-matter
+# is the one that most determines the company's product. Subtypes are optional.
+
+version: "1.0"
+last_updated: "2026-05-22"
+
+modalities:
+  computer_vision:
+    description: "Visual perception models, typically CNNs or vision transformers"
+    subtypes:
+      - radiology_imaging
+      - pathology_imaging
+      - retinal_imaging
+      - dermatology_imaging
+      - microscopy_imaging
+      - ultrasound_imaging
+      - mobile_clinical_photo
+      - video_based_clinical_assessment
+
+  natural_language_processing:
+    description: "Text-based language models for clinical or patient-facing applications"
+    subtypes:
+      - clinical_notes_processing
+      - conversational_triage
+      - patient_education_chatbot
+      - language_translation
+      - medical_coding
+      - clinical_search_retrieval
+
+  predictive_ml:
+    description: "Tabular and structured-data ML for clinical risk and prediction"
+    subtypes:
+      - deterioration_prediction
+      - readmission_risk
+      - disease_risk_stratification
+      - outbreak_detection
+      - sepsis_prediction
+      - tb_screening_risk
+      - maternal_risk_scoring
+
+  generative_ai:
+    description: "Generative models for decision support, summarization, and content"
+    subtypes:
+      - clinical_decision_support
+      - summarization
+      - patient_education_content
+      - synthetic_data_generation
+      - report_generation
+
+  speech_audio:
+    description: "Voice and audio analysis for clinical signal"
+    subtypes:
+      - voice_triage
+      - cough_analysis
+      - lung_sound_analysis
+      - heart_sound_analysis
+      - speech_pathology_assessment
+
+  robotics_physical_ai:
+    description: "Physical AI systems for surgery, drug delivery, autonomous transport"
+    subtypes:
+      - surgical_robotics
+      - drone_delivery
+      - autonomous_ground_delivery
+      - lab_automation
+      - dispensing_robotics
+
+  sensor_iot:
+    description: "Sensor data analytics from wearables, point-of-care devices, and IoT"
+    subtypes:
+      - wearable_analytics
+      - point_of_care_device_ml
+      - remote_patient_monitoring
+      - environmental_sensing
+
+  supply_chain_ops_ml:
+    description: "ML for health supply chain, logistics, and demand forecasting"
+    subtypes:
+      - demand_forecasting
+      - inventory_optimization
+      - route_optimization
+      - cold_chain_monitoring
+      - stockout_prediction
+
+# Notes for tagging
+tagging_guidance:
+  - "Use the modality (e.g., `computer_vision`) as the primary tag"
+  - "Use subtype tags only if highly specific and useful for filtering"
+  - "If a company uses multiple modalities, list all in front-matter and pick one as `primary_modality`"
+  - "Do not invent new modalities; if a card's product does not fit, document in `docs/decisions.md` and decide whether to expand the taxonomy"
