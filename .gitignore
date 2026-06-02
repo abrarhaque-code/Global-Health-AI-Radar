@@ -1,0 +1,48 @@
+# Private data, never commit. Raw provider pulls, CRM exports, and working
+# discovery inboxes live here.
+private/
+
+# Raw connector payloads (these match the reference connectors; rename for your stack)
+*.pitchbook.json
+*.attio.json
+*-raw.json
+**/pitchbook-raw/
+**/attio-raw/
+
+# Private working copies of any file
+*-private.md
+*.private.md
+
+# Private thesis and strategy working docs. Keep only docs/thesis.example.md in git.
+thesis/
+*-strategy.md
+*-strategy.pdf
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python (if you add scripts)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node (if you add tooling)
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
