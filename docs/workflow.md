@@ -2,17 +2,48 @@
 
 The core operating loop for the workbench. Documents how a company moves from "name we saw" to "card with citations and a scored fit assessment" to "outreach drafted or watchlist entry." Apply this loop to every theme. The user runs it; an AI agent with MCP connectors executes the steps.
 
+## First 30 minutes
+
+If you are new to the workbench, do this once to feel the whole loop:
+
+1. Read `docs/thesis.example.md` and `docs/methodology.md` (about 10 minutes).
+2. Run `mkdir -p private`, then discover one theme with `prompts/discover_by_theme.md` (about 10 minutes).
+3. Enrich one candidate with `prompts/enrich_company.md` and score it with `prompts/score_relevance.md` (about 10 minutes).
+
+You now have one cited, scored card and a candidate inbox. Regenerate `landscape/INDEX.md` with `prompts/render_master_table.md`, then run `bash scripts/preflight.sh` before you share.
+
 ## The 5-step loop
+
+```mermaid
+flowchart TD
+    subgraph PRIV["private/ (gitignored)"]
+        D["1. Discovery<br/>fan out across sources for one theme<br/>bias toward inclusion"]
+        INBOX[("candidate inbox")]
+    end
+    D --> INBOX --> T{"2. Triage: two gates<br/>mission alignment + investability"}
+    T -->|passes both| E["3. Enrichment<br/>build card to schema, cite every claim"]
+    T -->|one gate / edge case| W[["watchlist row"]]
+    T -->|fails a gate| X["out of scope, no card"]
+    subgraph PUB["landscape/ + memos/ (committed)"]
+        E --> V{"4. Vetting: score<br/>1-5 impact + 1-5 investability"}
+        V --> A["5. Action<br/>outreach for strong fits, watch the rest"]
+        W
+    end
+    A -.->|redacted aggregates| LOG["outreach/log.md"]
+    A -.->|real content| CRM["CRM (reference: Attio)"]
+```
+
+Plain-text version of the same loop, for readers without a Mermaid renderer:
 
 ```
 [1. Discovery: cast wide]
-       ↓
+       |
 [2. Triage: relevance gates]
-       ↓
+       |
 [3. Enrichment: build card]
-       ↓
+       |
 [4. Vetting: evidence-driven scoring]
-       ↓
+       |
 [5. Action: outreach or watch]
 ```
 
@@ -135,7 +166,7 @@ Pull:
 - ClinicalTrials.gov: any registered trials by ExampleDx as sponsor
 - CRM: any prior contact in the fund's pipeline
 
-Build card at `landscape/companies/exampledx.md` with citations on every claim.
+Build the card following `docs/card_schema.md`, with citations on every claim. For a finished card of this type, see `landscape/companies/composite-tb-cxr.md`.
 
 ### Step 4: Vetting
 
@@ -181,10 +212,12 @@ Pull:
 - News: pharma partnership terms, sequencing-install context, any new funding signals
 - CRM: any prior contact with the GenomeAfrica team
 
-Build card at `landscape/companies/genomeafrica.md` with:
+Build the card following `docs/card_schema.md`, with:
 - Citations to the pharma partnership announcement and the sequencing-install news
 - A sector risk note in the "Open questions and risks" section: capital-intensive genomics platforms have a track record of slow commercial conversion
 - Specific commercial revenue conversion as an open question
+
+For a finished card of this type, see `landscape/companies/composite-genomics-registry.md`.
 
 ### Step 4: Vetting
 

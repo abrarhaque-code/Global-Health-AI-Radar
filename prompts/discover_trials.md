@@ -36,7 +36,3 @@ For notable trials: create `landscape/trials/{NCT-id}.md` matching the trial car
 ## Linking
 
 If the trial's sponsor or PI appears in `landscape/companies/` or `landscape/people/`, set the front-matter `sponsor_org_slugs` and `pi_slugs` fields. If they don't yet, consider whether the PI is worth a `landscape/people/` entry via `prompts/enrich_person.md`.
-
-## Status
-
-V1 stub. Expand in week 3-4 when the secondary landscape track is activated.

@@ -55,7 +55,7 @@ These signals, drawn from the positive-signals list, raise scoring confidence an
 - Proprietary clinical, genomic, or operational dataset from LMIC sources
 - Partnership with a pharma, biotech, or large foundation for LMIC commercial work
 - WHO prequalification in progress, or NMRA approval in a priority market
-- Inclusion in CEPI, Gavi, GFF, Gates Foundation, Wellcome, Novo Nordisk, EVAH, or Anthropic Frontier Catalyst initiatives
+- Inclusion in a named funder initiative from your `taxonomy/capital_partners.yaml` (for example CEPI, Gavi, GFF, Gates Foundation, Wellcome, or Novo Nordisk Foundation programs)
 - AI workflow integrated into a regulated GMP or GLP environment
 - Series A or later with named institutional investors, or a notable seed with a clear path to A
 - Recurring revenue from enterprise, pharma research, or government contracts

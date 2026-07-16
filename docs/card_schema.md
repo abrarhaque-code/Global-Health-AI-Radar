@@ -10,7 +10,7 @@ This document defines the structure every card must follow. Cards are markdown f
 - Paper cards: `landscape/papers/{slug}.md`
 - Watchlist: `landscape/companies/_watchlist.md` (single file, one-line entries)
 
-Slugs are lowercase, hyphenated, no special characters. Use the canonical short name (e.g., `exampledx`, `genomeafrica`). For name conflicts, append a country code (`exampledx-rw`).
+Slugs are lowercase, hyphenated, no special characters. Use the canonical short name (e.g., `composite-tb-cxr`). For name conflicts, append a country code (for example `acme-rw`).
 
 ## Company card structure
 
@@ -33,7 +33,7 @@ funding_stage: "series_a"                          # from taxonomy/funding_stage
 last_round_date: "2025-09-15"
 last_round_amount_usd: 15000000
 total_raised_usd: 22000000
-notable_investors: ["gates", "example_vc"]         # from taxonomy/capital_partners.yaml IDs
+notable_investors: ["gates", "example_health_vc"]  # from taxonomy/capital_partners.yaml IDs
 proprietary_data_asset: "Multi-country dataset of fetal ultrasound clips with paired gold-standard gestational age estimates"
 clinical_validation_status: "rwe_published"        # see field definitions below
 regulatory_status_by_market:
@@ -156,6 +156,23 @@ in the CRM.
 - **`discovery_date`**: required. ISO date when first identified.
 - **`revenue_signal`**: optional. One of `pre_revenue`, `grant_funded`, `pharma_research`, `enterprise_saas`, `government_contract`, `mixed`, `undisclosed`. Used because real revenue figures are hard to verify; this captures the stated or likely model.
 - **`recent_signals`**: list of recent signal trigger events with dates, trigger type from `taxonomy/signal_triggers.yaml`, and source IDs.
+- **`card_type`**: optional. `real` (the default when absent) or `anonymized_composite`. See "Anonymized composite cards" below.
+
+## Anonymized composite cards
+
+The company cards shipped with this template are anonymized composites: each is built from real diligence on several real companies, with identifying details (names, figures, geographies, round dates) altered and blended so the profile maps back to no single company. The point is to demonstrate the method at full research depth without publishing a rating of any named company.
+
+Rules for a composite card:
+
+- Set `card_type: anonymized_composite` in front-matter.
+- Open the body with the standard disclosure blockquote (see any `landscape/companies/composite-*.md` card) so no reader can mistake the profile for a real company.
+- Two source classes:
+  - Domain-level claims (disease burden, WHO guidance, regulatory pathways, funder programs, published literature) carry real, checkable sources with ordinary `web-NNN` / `pm-NNN` / `ct-NNN` IDs.
+  - Company-specific claims (product, deployments, funding, team) cite the `[co]` sentinel, which resolves to a single front-matter source entry of `type: withheld`. The claims are grounded in real diligence, but their sources would identify real companies, so they are withheld by design.
+- No invented personal names: the "Key people" section describes roles and backgrounds, not named individuals.
+- Scores on a composite card rate the composite profile, not any real company. No real company is scored or rated anywhere in this repository.
+
+Cards in a working (non-template) radar never use `type: withheld`; it exists only for published composites.
 
 ## Trial card structure (lighter)
 
@@ -213,7 +230,7 @@ sources:
     type: pubmed
     pmid: "12345678"
 signal_strength: "medium"
-linked_companies: ["exampledx"]
+linked_companies: ["example-co"]
 ---
 ```
 
@@ -225,10 +242,10 @@ For `landscape/people/{slug}.md`.
 
 ```yaml
 ---
-slug: jane-okafor
-name: "Jane Okafor"
-current_role: "Founder and CEO, ExampleDx"
-current_org_slug: "exampledx"
+slug: jane-doe
+name: "Jane Doe"
+current_role: "Founder and CEO, Example Co"
+current_org_slug: "example-co"
 prior_roles:
   - "Postdoc, university radiology AI lab"
   - "Clinical lead, national referral hospital"
@@ -258,8 +275,8 @@ Companies tracked lightly. Refresh quarterly.
 
 | Slug | Name | Country | AI category | Reason on watchlist | Last seen |
 |------|------|---------|-------------|---------------------|-----------|
-| genomeafrica | GenomeAfrica | GHA | health_data_diagnostics_genomics | Population genomics; capital-intensive lab build; tracked for commercial-conversion evidence | 2026-04 |
-| exampledx | ExampleDx | KEN | health_data_diagnostics_genomics | AI chest-X-ray TB screening; primary-care deployment in progress | 2026-04 |
+| composite-retinal-dr | Composite: AI diabetic-retinopathy screening | IND | health_data_diagnostics_genomics | Camera-plus-model retinal triage; tracked for LMIC-population validation | 2026-07 |
+| composite-ai-ecg | Composite: AI-ECG structural heart | NGA | health_data_diagnostics_genomics | Low-cost ECG plus model; tracked for deployment evidence | 2026-07 |
 ```
 
 ## Quality requirements (all card types)

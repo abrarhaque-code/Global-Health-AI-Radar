@@ -33,7 +33,3 @@ For notable papers: create `landscape/papers/{slug}.md` matching the paper card 
 ## Linking
 
 If a paper's first or senior author appears in `landscape/people/`, set the `linked_people` field. If the author is at a notable institution doing repeated work in this area, consider creating a `landscape/people/` entry via `prompts/enrich_person.md`.
-
-## Status
-
-V1 stub. Expand in week 3-4.

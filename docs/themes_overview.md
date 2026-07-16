@@ -12,7 +12,7 @@ See `taxonomy/themes.yaml` for the machine-readable version. See `docs/thesis.ex
 
 AI extends specialist diagnostic capability to frontline workers. First wave: TB chest X-ray. Second: obstetric ultrasound. Third: dermatology and cervical screening. Echocardiography and retinal screening are credible adjacents.
 
-**Pipeline anchor (illustrative):** ExampleDx, a fictional AI chest-X-ray TB-screening company, HQ Kenya
+**Pipeline anchor (illustrative):** `composite-tb-cxr`, an anonymized AI chest-X-ray TB-screening composite
 
 **Why it ranks lean-in:** real evidence base (computer-aided detection for TB on chest X-ray reaches roughly 90% sensitivity in published meta-analyses), near-term procurement catalysts (Gavi, the Global Fund, Africa CDC), live pipeline anchors.
 
@@ -22,7 +22,7 @@ AI extends specialist diagnostic capability to frontline workers. First wave: TB
 
 The data layer underneath LMIC health systems is the most durable AI moat available because it has not been built and because once built it compounds. Pharma co-development revenue near-term; clinical decision-support and diagnostic licensing later.
 
-**Pipeline anchor (illustrative):** GenomeAfrica, a fictional population-genomics and health-data platform, HQ Ghana
+**Pipeline anchor (illustrative):** `composite-genomics-registry`, an anonymized African population-genomics composite
 
 **Watch:** regional genomics initiatives surfacing from continental health agencies and science foundations
 

@@ -88,7 +88,7 @@ POST /v2/objects/companies/attributes/<slug>/options
 }
 ```
 
-Source the option set from the path noted in Table 1 (e.g., `taxonomy/ai_modalities.yaml`). For multi-selects, every value used across all 51 cards plus any future-proof additions from the taxonomy file goes in. Capture the canonical `api_slug` Attio returns (Attio sometimes normalizes punctuation or case) and write it back into `docs/attio_mapping.md` if it differs.
+Source the option set from the path noted in Table 1 (e.g., `taxonomy/ai_modalities.yaml`). For multi-selects, every value used across the committed cards plus any future-proof additions from the taxonomy file goes in. Capture the canonical `api_slug` Attio returns (Attio sometimes normalizes punctuation or case) and write it back into `docs/attio_mapping.md` if it differs.
 
 ### Step 3: Verify or create the AI x Global Health Radar list
 

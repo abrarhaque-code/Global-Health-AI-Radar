@@ -22,7 +22,7 @@ themes:
       - "AI dermatology and cervical screening"
       - "AI echocardiography"
       - "Retinal screening for diabetic retinopathy"
-    pipeline_anchors: ["exampledx"]
+    pipeline_anchors: ["composite-tb-cxr"]
     risks: "Validation in LMIC populations, WHO PQ timing, public procurement cycles, talent retention"
 
   - id: theme_2
@@ -34,7 +34,7 @@ themes:
       - "Population genomics platforms"
       - "Disease registries and EHR"
       - "Clinical decision support trained on local data"
-    pipeline_anchors: ["genomeafrica"]
+    pipeline_anchors: ["composite-genomics-registry"]
     risks: "Capital-intensive genomics platforms have a track record of slow commercial conversion; require revenue evidence before follow-on."
 
   - id: theme_3

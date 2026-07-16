@@ -36,6 +36,6 @@ A people card at `landscape/people/{slug}.md` matching the people card schema in
 
 Same as company enrichment: no em dashes, no adjective stacking, citations on every factual claim, direct register.
 
-## Status
+## Usage note
 
-V1 stub. Use selectively when a person is clearly notable beyond their company context.
+Use selectively. Most people are covered well enough by the "Key people" section of a company card; create a standalone person card only when the person is notable beyond their company context (repeat founder, field-defining researcher, or an operator who appears across multiple tracked companies).

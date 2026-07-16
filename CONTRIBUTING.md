@@ -20,7 +20,7 @@ Content (the cards the engine produces):
 - `memos/`: thematic synthesis.
 - `outreach/log.md`: aggregate, redacted activity counts only.
 
-Example scaffolding files are prefixed `EXAMPLE-` so they are easy to find and delete when you adopt the template for your own thesis.
+Example content is labeled so it is easy to find and remove when you adopt the template for your own thesis. Company cards are anonymized composites that open with a disclosure blockquote, and the trial and paper cards are real public objects. Find the composites with `grep -rl "Anonymized composite" landscape memos`.
 
 ## How to add a prompt
 

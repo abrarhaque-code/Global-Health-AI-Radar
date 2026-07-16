@@ -6,6 +6,8 @@ The workhorse prompt for building the investable universe. Run once per theme. C
 
 You're building the database for a specific theme (e.g., Theme 1: AI diagnostics in LMIC primary care). You want 50-200 candidate names from all sources, triaged into four buckets.
 
+For a quick provider-only scan (one disease area or modality, no multi-source fan-out), run source channel A alone and go straight to Step 3 triage. The full fan-out is the default for theme build-out.
+
 ## Inputs to provide
 
 - **Theme ID** (required): from `taxonomy/themes.yaml` (theme_1 through theme_7)

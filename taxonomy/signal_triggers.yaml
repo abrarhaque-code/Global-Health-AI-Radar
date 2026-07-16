@@ -15,9 +15,8 @@ triggers:
       - "Gates Foundation grants database"
       - "Wellcome Trust grants"
       - "Novo Nordisk Foundation"
-      - "Anthropic Frontier Catalyst tranches"
-      - "EVAH grantees"
       - "CEPI awardees"
+      - "AI-for-health funder programs specific to your thesis (add your own)"
     action: "Update or create card; tag with grant source in front-matter; add note in 'Outreach notes' with date and amount"
 
   pharma_collaboration:

@@ -5,15 +5,24 @@
 # Run from the repository root:
 #   bash scripts/preflight.sh
 #
+# Optional deep scan:
+#   bash scripts/preflight.sh --history
+# additionally sweeps the full git history for banned tokens. Run it once
+# before making a previously private repository public, or after adding new
+# tokens to private/banned_tokens.txt.
+#
 # Each check prints a PASS or FAIL line. The script exits nonzero if any
 # check FAILs. WARN lines do not affect the exit code.
 #
 # Design note: this script deliberately excludes the scripts/ directory from
-# the prose and banned-token scans so it does not flag its own pattern text or
-# the banned-token list defined below. The punctuation scan uses perl-regex
-# \x{...} escapes (not literal characters) for the same reason.
+# the prose and banned-token scans so it does not flag its own pattern text.
+# The punctuation scan uses perl-regex \x{...} escapes (not literal
+# characters) for the same reason.
 
 set -euo pipefail
+
+HISTORY_MODE=0
+[ "${1:-}" = "--history" ] && HISTORY_MODE=1
 
 # Track overall status. Any FAIL flips this to 1.
 status=0
@@ -53,35 +62,34 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-# Check (b): the field name adjuvant_fit_rating must not appear anywhere.
-# The schema field is fit_rating.
+# Check (b): no banned tokens. The default list contains only a generic
+# sentinel marker: tag any draft content you must never commit with
+# DO_NOT_COMMIT and this check will catch it.
+#
+# Add your own confidential tokens (firm names, portfolio companies, internal
+# program names, codenames, legacy field names) to private/banned_tokens.txt,
+# one per line, '#' comments allowed. That file lives in the gitignored
+# private/ directory, so the token list itself never becomes public.
+# Case-insensitive, whole-word, fixed-string match.
 # ---------------------------------------------------------------------------
-if [ ${#existing_targets[@]} -eq 0 ]; then
-  warn "fit_rating field scan: no scan targets present yet, skipping"
-else
-  legacy_field_hits=$(grep -rl 'adjuvant_fit_rating' "${existing_targets[@]}" 2>/dev/null || true)
-  if [ -n "$legacy_field_hits" ]; then
-    fail "schema: legacy field name found (use fit_rating) in:"
-    printf '        %s\n' $legacy_field_hits
-  else
-    pass "schema: no legacy fit-rating field name"
-  fi
-fi
+BANNED_TOKENS=(DO_NOT_COMMIT)
 
-# ---------------------------------------------------------------------------
-# Check (c): no banned real-world tokens. These are firm names, portfolio
-# names, and real companies that must not leak into the public template.
-# Case-insensitive, whole-word match.
-# ---------------------------------------------------------------------------
-BANNED_TOKENS=(adjuvant aghaf malaica yemaachi 54gene deepecho minohealth nawah bamco tricog penda rology newtopia babylon)
+BANNED_TOKENS_FILE="private/banned_tokens.txt"
+if [ -f "$BANNED_TOKENS_FILE" ]; then
+  while IFS= read -r line; do
+    line="${line%%#*}"
+    line="$(printf '%s' "$line" | tr -d '[:space:]')"
+    [ -n "$line" ] && BANNED_TOKENS+=("$line")
+  done < "$BANNED_TOKENS_FILE"
+fi
 
 if [ ${#existing_targets[@]} -eq 0 ]; then
   warn "banned-token scan: no scan targets present yet, skipping"
 else
   banned_found=0
   for tok in "${BANNED_TOKENS[@]}"; do
-    # -i case-insensitive, -w whole word, -l filenames only.
-    tok_hits=$(grep -rilw "$tok" "${existing_targets[@]}" 2>/dev/null || true)
+    # -i case-insensitive, -w whole word, -F fixed string, -l filenames only.
+    tok_hits=$(grep -rilwF "$tok" "${existing_targets[@]}" 2>/dev/null || true)
     if [ -n "$tok_hits" ]; then
       fail "banned token '$tok' found in:"
       printf '        %s\n' $tok_hits
@@ -89,13 +97,35 @@ else
     fi
   done
   if [ "$banned_found" -eq 0 ]; then
-    pass "banned tokens: none found"
+    pass "banned tokens: none found (${#BANNED_TOKENS[@]} token(s) scanned)"
   fi
 fi
 
 # ---------------------------------------------------------------------------
-# Check (d): WARN (not fail) if a company card lacks a sources: line.
-# Excludes _watchlist.md and EXAMPLE-* scaffolding files.
+# Optional history scan (--history): banned tokens must be absent from every
+# commit, not just the working tree. A hit here means the repository needs a
+# history rewrite before it can be shared.
+# ---------------------------------------------------------------------------
+if [ "$HISTORY_MODE" -eq 1 ]; then
+  if git rev-parse --git-dir >/dev/null 2>&1; then
+    hist_found=0
+    for tok in "${BANNED_TOKENS[@]}"; do
+      hist_hits=$(git log --all -i --pickaxe-regex -S"$tok" --format='%h %s' -- . ':(exclude)scripts' 2>/dev/null || true)
+      if [ -n "$hist_hits" ]; then
+        fail "banned token '$tok' appears in git history (needs history rewrite):"
+        printf '        %s\n' "$hist_hits"
+        hist_found=1
+      fi
+    done
+    [ "$hist_found" -eq 0 ] && pass "history: no banned tokens in any commit"
+  else
+    warn "history scan requested but not a git repository, skipping"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# Check (c): WARN (not fail) if a company card lacks a sources: line.
+# Excludes _watchlist.md, which is a table, not a card.
 # ---------------------------------------------------------------------------
 if [ -d landscape/companies ]; then
   missing_sources=0
@@ -104,7 +134,6 @@ if [ -d landscape/companies ]; then
     base=$(basename "$card")
     case "$base" in
       _watchlist.md) continue ;;
-      EXAMPLE-*) continue ;;
     esac
     if ! grep -q '^sources:' "$card"; then
       warn "company card missing 'sources:' line: $card"
@@ -112,14 +141,14 @@ if [ -d landscape/companies ]; then
     fi
   done
   if [ "$missing_sources" -eq 0 ]; then
-    pass "sources: all non-example company cards declare sources"
+    pass "sources: all company cards declare sources"
   fi
 else
   warn "sources scan: landscape/companies not present, skipping"
 fi
 
 # ---------------------------------------------------------------------------
-# Check (e): .gitignore must contain a private/ line.
+# Check (d): .gitignore must contain a private/ line.
 # ---------------------------------------------------------------------------
 if [ -f .gitignore ]; then
   if grep -qE '^private/' .gitignore; then

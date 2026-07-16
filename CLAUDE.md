@@ -17,6 +17,7 @@ This repository is configured for "AI for global health in low- and middle-incom
 3. `docs/methodology.md`: scope, the two gates, scoring overview, source biases.
 4. `docs/workflow.md`: the 5-step discovery-to-action loop with worked examples.
 5. `docs/card_schema.md`: card front-matter and body structure.
+6. `docs/adapting.md`: worked example of adapting the radar to another domain (read if repointing).
 
 ## Hard rules
 
@@ -73,7 +74,7 @@ The prompts name the reference tools in their tool sequences. Replacing a connec
 
 1. Review `git log` and `git diff` for any leaked raw provider or CRM content.
 2. Confirm `private/` is gitignored (test: `git check-ignore private/anything.json` should output the path).
-3. Run `bash scripts/preflight.sh` and resolve any FAIL.
+3. Run `bash scripts/preflight.sh` and resolve any FAIL (add `--history` before a first public push).
 4. Confirm every new factual claim has a citation.
 
 ## Operating reminders
