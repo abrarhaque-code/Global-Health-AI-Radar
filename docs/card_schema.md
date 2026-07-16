@@ -33,7 +33,7 @@ funding_stage: "series_a"                          # from taxonomy/funding_stage
 last_round_date: "2025-09-15"
 last_round_amount_usd: 15000000
 total_raised_usd: 22000000
-notable_investors: ["gates", "example_vc"]         # from taxonomy/capital_partners.yaml IDs
+notable_investors: ["gates", "example_health_vc"]  # from taxonomy/capital_partners.yaml IDs
 proprietary_data_asset: "Multi-country dataset of fetal ultrasound clips with paired gold-standard gestational age estimates"
 clinical_validation_status: "rwe_published"        # see field definitions below
 regulatory_status_by_market:
@@ -156,6 +156,23 @@ in the CRM.
 - **`discovery_date`**: required. ISO date when first identified.
 - **`revenue_signal`**: optional. One of `pre_revenue`, `grant_funded`, `pharma_research`, `enterprise_saas`, `government_contract`, `mixed`, `undisclosed`. Used because real revenue figures are hard to verify; this captures the stated or likely model.
 - **`recent_signals`**: list of recent signal trigger events with dates, trigger type from `taxonomy/signal_triggers.yaml`, and source IDs.
+- **`card_type`**: optional. `real` (the default when absent) or `anonymized_composite`. See "Anonymized composite cards" below.
+
+## Anonymized composite cards
+
+The company cards shipped with this template are anonymized composites: each is built from real diligence on several real companies, with identifying details (names, figures, geographies, round dates) altered and blended so the profile maps back to no single company. The point is to demonstrate the method at full research depth without publishing a rating of any named company.
+
+Rules for a composite card:
+
+- Set `card_type: anonymized_composite` in front-matter.
+- Open the body with the standard disclosure blockquote (see any `landscape/companies/composite-*.md` card) so no reader can mistake the profile for a real company.
+- Two source classes:
+  - Domain-level claims (disease burden, WHO guidance, regulatory pathways, funder programs, published literature) carry real, checkable sources with ordinary `web-NNN` / `pm-NNN` / `ct-NNN` IDs.
+  - Company-specific claims (product, deployments, funding, team) cite the `[co]` sentinel, which resolves to a single front-matter source entry of `type: withheld`. The claims are grounded in real diligence, but their sources would identify real companies, so they are withheld by design.
+- No invented personal names: the "Key people" section describes roles and backgrounds, not named individuals.
+- Scores on a composite card rate the composite profile, not any real company. No real company is scored or rated anywhere in this repository.
+
+Cards in a working (non-template) radar never use `type: withheld`; it exists only for published composites.
 
 ## Trial card structure (lighter)
 
