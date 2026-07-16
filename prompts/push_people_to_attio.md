@@ -24,7 +24,7 @@ For each company being exported, parse the "Key people" body section and upsert 
 ### Step 0: Load context
 
 1. Parse `landscape/companies/{slug}.md` "Key people" body section. Each bullet becomes a candidate person.
-2. For each candidate, look for a matching `landscape/people/{person-slug}.md` (slug-style name match, e.g., "Jane Okafor" -> `jane-okafor.md`). If found, parse the front-matter; the card has richer data than the inline bullet.
+2. For each candidate, look for a matching `landscape/people/{person-slug}.md` (slug-style name match, e.g., "Jane Doe" -> `jane-doe.md`). If found, parse the front-matter; the card has richer data than the inline bullet.
 3. Skip any person flagged `[uncertain]` in the name field. Skip board observers and advisors named only as "and additional advisors" or similar non-individuals.
 
 ### Step 1: Per person, search for an existing Attio record

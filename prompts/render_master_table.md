@@ -85,7 +85,7 @@ Each view renders as a small table with slug, name, and the most relevant column
 
 ### Step 5: Pending decisions
 
-Read `docs/decisions.md` for the most recent ADR that flags rating-change candidates. For example, an ADR titled `Pre-outreach lead validation pass` might flag slugs such as `exampledx` and `genomeafrica`. Render a small table per the ADR text. The `★` annotation in the master table comes from this list.
+Read `docs/decisions.md` for the most recent ADR that flags rating-change candidates. For example, an ADR titled `Pre-outreach lead validation pass` might flag slugs such as `composite-tb-cxr` and `composite-genomics-registry`. Render a small table per the ADR text. The `★` annotation in the master table comes from this list.
 
 If a future ADR adds or removes flags, the generator parses that ADR's "rating-change candidates flagged for partner-level review" table to refresh the list. No hardcoding beyond the most-recent ADR pointer.
 

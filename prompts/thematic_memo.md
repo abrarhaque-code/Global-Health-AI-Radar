@@ -18,8 +18,8 @@ Use this prompt to synthesize multiple opportunity cards, trial cards, and paper
 
 Aligned to the lean-in themes from `docs/themes_overview.md`:
 
-1. **Theme 1: AI-native diagnostics for LMIC primary care** (example anchor: ExampleDx)
-2. **Theme 2: African genomic and health data infrastructure** (example anchor: GenomeAfrica)
+1. **Theme 1: AI-native diagnostics for LMIC primary care** (example anchor: `composite-tb-cxr`)
+2. **Theme 2: African genomic and health data infrastructure** (example anchor: `composite-genomics-registry`)
 3. **Theme 3: Manufacturing intelligence and cloud-lab infrastructure**
 
 Selective and monitor themes come later, after the core cards are built out.

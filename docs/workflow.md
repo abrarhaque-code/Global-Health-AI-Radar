@@ -135,7 +135,7 @@ Pull:
 - ClinicalTrials.gov: any registered trials by ExampleDx as sponsor
 - CRM: any prior contact in the fund's pipeline
 
-Build card at `landscape/companies/exampledx.md` with citations on every claim.
+Build the card following `docs/card_schema.md`, with citations on every claim. For a finished card of this type, see `landscape/companies/composite-tb-cxr.md`.
 
 ### Step 4: Vetting
 
@@ -181,10 +181,12 @@ Pull:
 - News: pharma partnership terms, sequencing-install context, any new funding signals
 - CRM: any prior contact with the GenomeAfrica team
 
-Build card at `landscape/companies/genomeafrica.md` with:
+Build the card following `docs/card_schema.md`, with:
 - Citations to the pharma partnership announcement and the sequencing-install news
 - A sector risk note in the "Open questions and risks" section: capital-intensive genomics platforms have a track record of slow commercial conversion
 - Specific commercial revenue conversion as an open question
+
+For a finished card of this type, see `landscape/companies/composite-genomics-registry.md`.
 
 ### Step 4: Vetting
 

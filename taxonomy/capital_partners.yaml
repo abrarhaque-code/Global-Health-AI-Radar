@@ -91,6 +91,12 @@ specialist_vcs:
     - id: example_accelerator
       name: "Example Accelerator"
       notes: "Placeholder for an accelerator whose graduates you track"
+    - id: example_health_ventures
+      name: "Example Health Ventures"
+      notes: "Placeholder health-specialist venture firm referenced by the example cards"
+    - id: example_global_fund
+      name: "Example Global Fund"
+      notes: "Placeholder global health fund referenced by the example cards"
 
 # Usage notes
 usage:

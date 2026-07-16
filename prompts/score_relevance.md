@@ -10,7 +10,7 @@ Use this prompt after enrichment to apply the formal scoring rubrics from `docs/
 
 ## Inputs to provide
 
-- **Path to the card file** (required), e.g., `landscape/companies/exampledx.md`
+- **Path to the card file** (required), e.g., `landscape/companies/composite-tb-cxr.md`
 
 ## Process
 

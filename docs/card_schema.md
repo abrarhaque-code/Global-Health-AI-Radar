@@ -10,7 +10,7 @@ This document defines the structure every card must follow. Cards are markdown f
 - Paper cards: `landscape/papers/{slug}.md`
 - Watchlist: `landscape/companies/_watchlist.md` (single file, one-line entries)
 
-Slugs are lowercase, hyphenated, no special characters. Use the canonical short name (e.g., `exampledx`, `genomeafrica`). For name conflicts, append a country code (`exampledx-rw`).
+Slugs are lowercase, hyphenated, no special characters. Use the canonical short name (e.g., `composite-tb-cxr`). For name conflicts, append a country code (for example `acme-rw`).
 
 ## Company card structure
 
@@ -230,7 +230,7 @@ sources:
     type: pubmed
     pmid: "12345678"
 signal_strength: "medium"
-linked_companies: ["exampledx"]
+linked_companies: ["example-co"]
 ---
 ```
 
@@ -242,10 +242,10 @@ For `landscape/people/{slug}.md`.
 
 ```yaml
 ---
-slug: jane-okafor
-name: "Jane Okafor"
-current_role: "Founder and CEO, ExampleDx"
-current_org_slug: "exampledx"
+slug: jane-doe
+name: "Jane Doe"
+current_role: "Founder and CEO, Example Co"
+current_org_slug: "example-co"
 prior_roles:
   - "Postdoc, university radiology AI lab"
   - "Clinical lead, national referral hospital"
@@ -275,8 +275,8 @@ Companies tracked lightly. Refresh quarterly.
 
 | Slug | Name | Country | AI category | Reason on watchlist | Last seen |
 |------|------|---------|-------------|---------------------|-----------|
-| genomeafrica | GenomeAfrica | GHA | health_data_diagnostics_genomics | Population genomics; capital-intensive lab build; tracked for commercial-conversion evidence | 2026-04 |
-| exampledx | ExampleDx | KEN | health_data_diagnostics_genomics | AI chest-X-ray TB screening; primary-care deployment in progress | 2026-04 |
+| composite-retinal-dr | Composite: AI diabetic-retinopathy screening | IND | health_data_diagnostics_genomics | Camera-plus-model retinal triage; tracked for LMIC-population validation | 2026-07 |
+| composite-ai-ecg | Composite: AI-ECG structural heart | NGA | health_data_diagnostics_genomics | Low-cost ECG plus model; tracked for deployment evidence | 2026-07 |
 ```
 
 ## Quality requirements (all card types)
