@@ -17,6 +17,7 @@ This repository is configured for "AI for global health in low- and middle-incom
 3. `docs/methodology.md`: scope, the two gates, scoring overview, source biases.
 4. `docs/workflow.md`: the 5-step discovery-to-action loop with worked examples.
 5. `docs/card_schema.md`: card front-matter and body structure.
+6. `docs/adapting.md`: worked example of adapting the radar to another domain (read if repointing).
 
 ## Hard rules
 

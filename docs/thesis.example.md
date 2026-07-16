@@ -81,7 +81,9 @@ Seven prioritized themes, classified lean-in, selective, or monitor. Full reason
 
 ## How to replace this file
 
-1. Write your own one-page thesis here: the focus, the two gates, the positive signals, the exclusions, the geographies, and the themes.
+1. Write your own one-page thesis here: the focus, the two gates, the positive signals, the exclusions, the geographies, and the themes. Edit this file in place for a shareable thesis, or keep a private version under the gitignored `thesis/` directory if your thesis itself is confidential.
 2. Update `taxonomy/themes.yaml`, `taxonomy/ai_categories.yaml`, and the other taxonomy files to match.
 3. Re-read `docs/methodology.md`; it operationalizes this thesis, so confirm the scope, gates, and scoring still align.
 4. Anything that conflicts between this thesis and the methodology gets resolved in favor of the thesis, with the conflict logged in `docs/decisions.md`.
+
+For a full worked example that repoints the radar to a different field end to end, see `docs/adapting.md`.
