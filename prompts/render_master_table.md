@@ -6,7 +6,7 @@ Deterministic regeneration of `landscape/INDEX.md` from `landscape/companies/*.m
 
 - After any company card creation, deletion, or front-matter edit that changes scoring, fit rating, status, theme, or stage.
 - After a thematic memo update that changes the high-conviction tier composition.
-- Quarterly refresh sanity-check (counts and distributions should match the README Status section).
+- Quarterly refresh sanity-check (counts and distributions should reconcile with the file counts under `landscape/` and `memos/`, and with the README status section if one is maintained).
 
 ## Inputs to provide
 
@@ -30,8 +30,8 @@ Deterministic regeneration of `landscape/INDEX.md` from `landscape/companies/*.m
 | People cards | files in `landscape/people/*.md` minus `.gitkeep` |
 | Trial cards | files in `landscape/trials/*.md` minus `.gitkeep` |
 | Paper cards | files in `landscape/papers/*.md` minus `.gitkeep` |
-| Thematic memos | files in `memos/2026-*-theme_*.md` |
-| High-conviction tier memo | check for `memos/*high-conviction-tier*.md` |
+| Thematic memos | files in `memos/*.md` matching `{YYYY-MM-DD}-{theme-slug}.md` |
+| High-conviction tier memo (optional) | check for `memos/*high-conviction-tier*.md`; when absent, omit the tier callout in Step 6 |
 | ADR entries | count `^## ` headers in `docs/decisions.md` |
 
 ### Step 2: Compute distributions
@@ -89,21 +89,23 @@ Read `docs/decisions.md` for the most recent ADR that flags rating-change candid
 
 If a future ADR adds or removes flags, the generator parses that ADR's "rating-change candidates flagged for partner-level review" table to refresh the list. No hardcoding beyond the most-recent ADR pointer.
 
+If no ADR flags rating-change candidates, omit the Pending decisions section and the `★` annotations entirely.
+
 ### Step 6: Assemble the file
 
-Layout (top to bottom; match the existing `landscape/INDEX.md` structure exactly):
+Layout (top to bottom; the canonical layout below; sections marked optional are omitted when empty, so a small landscape produces a short file):
 
 1. Title (`# AI x Global Health Radar: Index`) and Generated/Repo-home block.
 2. Snapshot table.
-3. Cohort distribution: By fit rating, By score quadrant (2D), By HQ country, By outreach status.
+3. Cohort distribution: By fit rating always renders; render the score quadrant (2D), By HQ region, and By outreach status distributions only when there are 5 or more company cards.
 4. All companies (master table).
 5. By theme: one section per theme, with the theme label and the slugs grouped under it. Memo path footer per theme.
-6. High-conviction tier callout (Tier A, Tier B).
+6. High-conviction tier callout (Tier A, Tier B; only when the high-conviction memo exists).
 7. People (table from `landscape/people/*.md` front-matter).
 8. Trial cards (file list).
 9. Paper cards (file list).
 10. Memos (file list).
-11. Pending decisions (Step 5 output).
+11. Pending decisions (Step 5 output; only when the latest ADR flags candidates).
 12. Source files reference (canonical tree).
 13. Resume protocol footer.
 

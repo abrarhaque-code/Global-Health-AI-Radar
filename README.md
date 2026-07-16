@@ -65,7 +65,7 @@ ai-global-health-radar/
 │   ├── themes_overview.md    map of the example themes
 │   ├── decisions.md          architecture decision records (ADR log)
 │   └── known_limitations.md  method-level limitations and biases
-├── prompts/                  16 reusable discovery, enrichment, scoring, outreach, sync prompts
+├── prompts/                  15 reusable discovery, enrichment, scoring, outreach, sync prompts
 ├── taxonomy/                 example config: categories, themes, stages, partners, signals
 ├── landscape/
 │   ├── companies/            opportunity cards (+ _watchlist.md)
@@ -124,7 +124,7 @@ The repo is built to be shared without leaking confidential data:
 - The `*-private.md` filename pattern is also gitignored.
 - Cards may carry opaque provider record IDs as private references; the underlying data is never committed.
 - Outreach content lives in the CRM. Only aggregate, redacted counts go in `outreach/log.md`.
-- `scripts/preflight.sh` scans for leaked tokens and writing-rule violations before a push.
+- `scripts/preflight.sh` scans for leaked tokens and writing-rule violations before a push. Add your own confidential tokens (firm names, portfolio companies, codenames) to `private/banned_tokens.txt` (gitignored), and run `bash scripts/preflight.sh --history` once before a first public push.
 
 ## Prompt library
 

@@ -7,6 +7,11 @@
 # A round led or co-led by any of the named partners is a positive signal that
 # raises confidence in scoring. Use this file as a controlled vocabulary when
 # tagging `notable_investors` in card front-matter.
+#
+# Convention: sections listing public institutions (foundations_and_dfis,
+# strategics) name real organizations because their programs are public
+# knowledge. Sections tied to a private network (specialist_vcs) ship as
+# "Example ..." placeholders. Replace all of them with your own vocabulary.
 
 version: "1.2"
 last_updated: "2026-05-28"
